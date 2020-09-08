@@ -1,0 +1,48 @@
+Int16 intPunkte;
+            string strBewertung = "Diese Punktzahl ist nicht berücksichtigt"; // Defaultwert, wird bei if - Statements angepasst
+
+            // Textbox leeren
+            this.lblNote.Text = "";
+
+            if (string.IsNullOrEmpty(this.txtName.Text))
+            {
+                MessageBox.Show("Bitte geben Sie Ihren Namen ein!", "Fehler 1", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (Int16.TryParse(this.txtPunkte.Text, out intPunkte)) // Wenn das Konvertieren des Textes in Int16 möglich ist, wird der Wert in intPunkte eingetragen
+            {
+                if (intPunkte >= 0 && intPunkte <= 50)
+                {
+                    strBewertung = "Ungenügend";
+                }
+
+                if (intPunkte >= 50 && intPunkte <= 65)
+                {
+                    strBewertung = "Genügend";
+                }
+
+                if (intPunkte >= 66 && intPunkte <= 75)
+                {
+                    strBewertung = "Befriedigend";
+                }
+
+                if (intPunkte >= 76 && intPunkte <= 85)
+                {
+                    strBewertung = "Gut";
+                }
+
+                if (intPunkte >= 86 && intPunkte <= 100)
+                {
+                    strBewertung = "Sehr Gut";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben Sie eine Zahl ein");
+                return;
+            }
+
+            this.lblNote.Text += this.txtName.Text + " erhält die Note: " + strBewertung;
+
+        }
