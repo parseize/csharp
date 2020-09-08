@@ -1,0 +1,13 @@
+{
+                        Int16 intSec = 0;
+
+            if (Int16.TryParse(this.txtSec.Text, out intSec) == false)
+            {
+                MessageBox.Show("Bitte geben Sie eine Zahl an!", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            System.Threading.Thread.Sleep(intSec * 1000);
+
+            MessageBox.Show(Convert.ToString(intSec) + " Sekunde(n) vorbei", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
