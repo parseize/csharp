@@ -1,0 +1,30 @@
+{
+            clsRechnen fctCalc = new clsRechnen();
+            this.lblAusgabe.Text = Convert.ToString(fctCalc.fctRechnen(Convert.ToDouble(this.txtEingabe1.Text), this.txtOp.Text,Convert.ToDouble(this.txtEingabe2.Text)));
+        }
+        
+        
+        
+ HINZUFÜGEN > NEUES ELEMENT > KLASSE (clsRechnen.cs)       
+        
+{
+            double dblResultat = 0;
+
+            switch (strOp)
+            {
+                case "+":
+                    dblResultat = dblEingabe1 + dblEingabe2;
+                    break;
+                case "-":
+                    dblResultat = dblEingabe1 - dblEingabe2;
+                    break;
+                case "*":
+                    dblResultat = dblEingabe1 * dblEingabe2;
+                    break;
+                case "/":
+                    dblResultat = dblEingabe1 / dblEingabe2;
+                    break;
+            }
+
+            return dblResultat;
+        }
