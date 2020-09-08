@@ -35,4 +35,4 @@
 
             //Ausgabe
             this.lblAusgabe.Text = "Die Summe aus " + this.txtSummand1.Text + " und " + this.txtSummand2.Text + " ergibt " + Convert.ToString(dblResultat);
-        }
+}
