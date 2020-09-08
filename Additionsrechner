@@ -1,0 +1,40 @@
+{
+            //Variabeln deklarieren
+            double dblSum1 = 0;
+            double dblSum2 = 0;
+            double dblResultat = 0;
+
+            //Defaultwerte setzen
+            this.txtSummand1.BackColor = Color.White;
+            this.txtSummand2.BackColor = Color.White;
+
+            //Variablen füllen
+            //dblSum1 = Convert.ToDouble(this.txtSummand1.Text);
+            //dblSum2 = Convert.ToDouble(this.txtSummand2.Text);
+
+            if (double.TryParse(this.txtSummand1.Text, out dblSum1) == false)
+            {
+                this.lblAusgabe.Text = "Die Eingabe im Feld Summand 1 ist falsch";
+                this.txtSummand1.Focus();
+                this.txtSummand1.BackColor = Color.Red;
+                this.txtSummand1.Text = "";
+                return;
+            }
+
+            if (double.TryParse(this.txtSummand2.Text, out dblSum2) == false)
+            {
+                this.lblAusgabe.Text = "Die Eingabe im Feld Summand 2 ist falsch";
+                this.txtSummand2.Focus();
+                this.txtSummand2.BackColor = Color.Red;
+                this.txtSummand2.Text = "";
+                return;
+            }
+
+            //Rechnen
+            dblResultat = dblSum1 + dblSum2;
+
+            //Ausgabe
+            this.lblAusgabe.Text = "Die Summe aus " + this.txtSummand1.Text + " und " + this.txtSummand2.Text + " ergibt " + Convert.ToString(dblResultat);
+        }
+    }
+}
