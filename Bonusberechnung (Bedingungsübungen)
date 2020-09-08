@@ -1,0 +1,40 @@
+{
+            // 1. Variablen definieren
+            decimal decUmsatz;
+            string strVertreter;
+            decimal decProvision = 0;
+
+            // 2. / 3. Fehlerkontrolle und Variablen füllen
+            if (decimal.TryParse(this.txtUmsatz.Text, out decUmsatz) == false)
+            {
+                MessageBox.Show("Falscher Datentyp", "Geben Sie Bitte eine Zahl ein!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.txtUmsatz.Clear(); // Eingabefeld leeren
+                this.txtUmsatz.Focus(); // Cursor in Eingabefeld setzen
+                return; //WICHTIG: aus der Procdur springen, d.h. weiterer Code wird nicht ausgeführt
+            }
+            strVertreter = this.txtVertreter.Text;
+
+            // 4. Rechnen/Ausführen: Vertreter aussuchen und Provision zuweisen
+            switch (strVertreter)
+            {
+                case "Huber":
+                    decProvision = decUmsatz * 2 / 100;
+                    break;
+                case "Maier":
+                    decProvision = decUmsatz * 3 / 100;
+                    break;
+                case "Frick":
+                    decProvision = decUmsatz * 4 / 100;
+                    break;
+                case "Moser":
+                    decProvision = decUmsatz * 5 / 100;
+                    break;
+                default:
+                    MessageBox.Show("Überprüfen Sie den Namen des Vertreters", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
+
+            // 5. Ausgabe
+            this.lblProvision.Text = "Die Provision für " + strVertreter + " beträgt: " + decProvision.ToString("C"); //.ToString("C") Wandelt Zahl in Währungsformat um. z.B. 40.00
+
+        }
