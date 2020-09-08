@@ -1,0 +1,22 @@
+{
+            string strInput;
+            double intZaehler;
+
+
+            for (intZaehler = 1; intZaehler <= 3; intZaehler++)
+            {
+                //Eingabe des Passwortes
+                // Damit die Inputbox aus VB gebraucht werden kann, muss man unter Verweis einen neuen Verweis auf Microsoft.VisualBasic setzen
+                strInput = Microsoft.VisualBasic.Interaction.InputBox("Geben sie das Passwort ein:");
+                //Überprüfung des Passwortes
+                if (strInput == "admin")
+                {
+                    MessageBox.Show("Willkommen " + strInput, "Angemeldet", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show("Fehler - Versuch Nr. " + intZaehler, "Falsch", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
