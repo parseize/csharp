@@ -1,0 +1,47 @@
+{
+                // 1. Variablen definieren
+                double decLeasingrate = 0;
+                decimal decKaufpreis = 0;
+                decimal decResultat = 0;
+
+                // 2. / 3. Fehlerkontrolle und Variablen füllen
+                if (decimal.TryParse(this.txtLeasingrate.Text, out decLeasingrate) == false)
+                {
+                    MessageBox.Show("Falscher Datentyp", "Geben Sie Bitte eine Zahl ein!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.txtLeasingrate.Clear();
+                    this.txtLeasingrate.Focus();
+                    return; 
+                }
+
+                if (decimal.TryParse(this.txtKaufpreis.Text, out decKaufpreis) == false)
+                {
+                    MessageBox.Show("Falscher Datentyp", "Geben Sie Bitte eine Zahl ein!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.txtKaufpreis.Clear();
+                    this.txtKaufpreis.Focus();
+                    return;
+                }
+
+
+                // 4. Rechnen
+                decResultat = decLeasingrate + decKaufpreis;
+
+                // 5. Ausgabe
+                lblResultat.Text = "Leasingkosten: " + Convert.ToString(decResultat);
+                
+                if (decResultat < 100)
+                {
+                    lblAusgabe.Text = "Das Auto hat einen guten Preis";
+                }
+
+                else if (decResultat > 100)
+                {
+                    lblAusgabe.Text = "Das Auto hat einen schlechten Preis";
+                }
+
+                // 6. Schleife
+                for (int i=(decLeasingrate * 10); i<10; i++)
+                {
+                    lblSchlaufe.Text += "Leasingrate   " + (i / decLeasingrate) + "\r\n";
+                }
+
+            }
